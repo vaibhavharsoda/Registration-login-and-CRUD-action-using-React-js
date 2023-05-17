@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { Link } from "react-router-dom"
+import React,{ useState, useEffect} from 'react'
+import { Link, useNavigate } from "react-router-dom"
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import Layout from "../components/Layout"
@@ -9,7 +9,14 @@ function ProjecCreate() {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('')
     const [isSaving, setIsSaving] = useState(false)
-  
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(localStorage.getItem('user') == null) {
+            navigate("/");
+        }
+    }, [])
+    
     const handleSave = () => {
         setIsSaving(true);
         axios.post('/api/projects', {

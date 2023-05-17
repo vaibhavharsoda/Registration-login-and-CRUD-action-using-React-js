@@ -1,14 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Layout from "../components/Layout"
  
   
 function ProjectShow() {
+    const navigate = useNavigate();
     const [id, setId] = useState(useParams().id)
     const [project, setProject] = useState({name:'', description:''})
  
     useEffect(() => {
+        if(localStorage.getItem('user') == null) {
+            navigate("/");
+        }
+        
         axios.get(`/api/projects/${id}`)
         .then(function (response) {
           setProject(response.data)
