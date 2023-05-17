@@ -10,7 +10,7 @@ function ProjectList() {
     const  [projectList, setProjectList] = useState([])
   
     useEffect(() => {
-        if(localStorage.getItem('user') == null) {
+        if(localStorage.getItem('token') == null) {
             navigate("/");
         }
         fetchProjectList()
@@ -61,6 +61,7 @@ function ProjectList() {
 
     const Logout = () => {
         localStorage.removeItem("user");
+        localStorage.removeItem("token");
         navigate("/");
     }
   

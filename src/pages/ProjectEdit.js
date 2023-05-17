@@ -12,7 +12,7 @@ function ProjectEdit() {
     const navigate = useNavigate();
       
     useEffect(() => {
-        if(localStorage.getItem('user') == null) {
+        if(localStorage.getItem('token') == null) {
             navigate("/");
         }
 

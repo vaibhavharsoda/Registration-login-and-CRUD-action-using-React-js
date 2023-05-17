@@ -34,6 +34,7 @@ function Login() {
           })
           .then(function (response) {
             localStorage.setItem("user", JSON.stringify(response.data));
+            localStorage.setItem("token", response.data.token);
             Swal.fire({
                 icon: 'success',
                 title: 'Login successfully!',

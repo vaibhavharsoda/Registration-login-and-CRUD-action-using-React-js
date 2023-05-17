@@ -10,7 +10,7 @@ function ProjectShow() {
     const [project, setProject] = useState({name:'', description:''})
  
     useEffect(() => {
-        if(localStorage.getItem('user') == null) {
+        if(localStorage.getItem('token') == null) {
             navigate("/");
         }
         
