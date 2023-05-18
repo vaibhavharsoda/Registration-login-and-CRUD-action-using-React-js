@@ -1,7 +1,7 @@
 # Registration-login-and-CRUD-action-using-React-js
 React.js + bootstrap + Axios(API)
 
-## Get the Code
+## Get the Code & setup project 
 
 ```
 $ git clone https://github.com/vaibhavharsoda/Registration-login-and-CRUD-action-using-React-js.git
