@@ -2,6 +2,7 @@
 
 This is a React project repository that includes authentication, registration, and CRUD functionality.
 
+"👍 If you find this repository useful, a like would mean the world to us! Thank you for your support."
 ## Getting Started
 
 To get started with the project, follow these steps:
