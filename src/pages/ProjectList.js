@@ -14,7 +14,6 @@ function ProjectList() {
             navigate("/");
         }
         fetchProjectList()
-        console.log(axios.get('/api/projects'))
     }, [])
   
     const fetchProjectList = () => {
