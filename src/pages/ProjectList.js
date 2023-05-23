@@ -15,9 +15,14 @@ function ProjectList() {
         }
         fetchProjectList()
     }, [])
+
+    let axiosInstance = axios.create({
+      baseURL: process.env.REACT_APP_API_URL
+    });
+
   
     const fetchProjectList = () => {
-        axios.get('/api/projects')
+        axiosInstance.get('/api/projects')
         .then(function (response) {
           setProjectList(response.data);
         })
@@ -37,7 +42,7 @@ function ProjectList() {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`/api/projects/${id}`)
+                axiosInstance.delete(`/api/projects/${id}`)
                 .then(function (response) {
                     Swal.fire({
                         icon: 'success',
