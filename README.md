@@ -6,16 +6,32 @@ This is a React project repository that includes authentication, registration, a
 
 To get started with the project, follow these steps:
 
-1. Clone the repository:
+1. Clone the repository:  
 
-2. Install the dependencies:
+    ```
+    git clone https://github.com/vaibhavharsoda/Registration-login-and-CRUD-action-using-React-js.git    
+    ```  
+    ```
+    cd Registration-login-and-CRUD-action-using-React-js
+    ```
+
+2. Install the dependencies:  
+
+    ```
+      npm install
+    ```
 
 3. Create an environment file:
-- Create a new file named `.env` in the root directory of the project.
-- Copy the contents of `.env.example` file and update the values with your configuration.
+- Create a new file named `.env` in the root directory of the project.  
 
-4. Start the development server:
+    ```
+     cp .env.example .env
+    ```
 
+4. Start the development server:  
+    ```
+     npm start
+    ```
 
 5. Open your browser and navigate to `http://localhost:3000` to see the application.
 
@@ -37,4 +53,4 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 - [Axios](https://axios-http.com/)
 - [React Router](https://reactrouter.com/)
 
-### "👍 If you find this repository useful, a like would mean the world to us! Thank you for your support."
+### "👍 If you find this repository useful, a like would mean the world to us! Thank you for your support. ❤️"
