@@ -16,10 +16,14 @@ function ProjecCreate() {
             navigate("/");
         }
     }, [])
+
+    let axiosInstance = axios.create({
+      baseURL: 'https://mock-api.binaryboxtuts.com/';
+    });
     
     const handleSave = () => {
         setIsSaving(true);
-        axios.post('/api/projects', {
+        axiosInstance.post('/api/projects', {
             name: name,
             description: description
           })

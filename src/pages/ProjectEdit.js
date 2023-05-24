@@ -10,13 +10,17 @@ function ProjectEdit() {
     const [description, setDescription] = useState('')
     const [isSaving, setIsSaving] = useState(false)
     const navigate = useNavigate();
-      
+
+    let axiosInstance = axios.create({
+      baseURL: 'https://mock-api.binaryboxtuts.com/';
+    });
+    
     useEffect(() => {
         if(localStorage.getItem('token') == null) {
             navigate("/");
         }
 
-        axios.get(`/api/projects/${id}`)
+        axiosInstance.get(`/api/projects/${id}`)
         .then(function (response) {
             let project = response.data
             setName(project.name);
@@ -36,7 +40,7 @@ function ProjectEdit() {
   
     const handleSave = () => {
         setIsSaving(true);
-        axios.patch(`/api/projects/${id}`, {
+        axiosInstance.patch(`/api/projects/${id}`, {
             name: name,
             description: description
         })
