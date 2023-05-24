@@ -21,19 +21,12 @@ To get started with the project, follow these steps:
       npm install
     ```
 
-3. Create an environment file:
-- Create a new file named `.env` in the root directory of the project.  
-
-    ```
-     cp .env.example .env
-    ```
-
-4. Start the development server:  
+3. Start the development server:  
     ```
      npm start
     ```
 
-5. Open your browser and navigate to `http://localhost:3000` to see the application.
+4. Open your browser and navigate to `http://localhost:3000` to see the application.
 
 ## Features
 
