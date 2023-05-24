@@ -8,13 +8,17 @@ function ProjectShow() {
     const navigate = useNavigate();
     const [id, setId] = useState(useParams().id)
     const [project, setProject] = useState({name:'', description:''})
- 
+    
+    let axiosInstance = axios.create({
+        baseURL: 'https://mock-api.binaryboxtuts.com/'
+      });
+
     useEffect(() => {
         if(localStorage.getItem('token') == null) {
             navigate("/");
         }
         
-        axios.get(`/api/projects/${id}`)
+        axiosInstance.get(`/api/projects/${id}`)
         .then(function (response) {
           setProject(response.data)
         })
