@@ -12,7 +12,7 @@ function ProjectEdit() {
     const navigate = useNavigate();
 
     let axiosInstance = axios.create({
-      baseURL: 'https://mock-api.binaryboxtuts.com/';
+      baseURL: 'https://mock-api.binaryboxtuts.com/'
     });
     
     useEffect(() => {

@@ -12,7 +12,7 @@ function Registration() {
     const [password, setPassword] = useState('')
     const [password_confirmation, setPasswordConfirmation] = useState('')
     const [isSaving, setIsSaving] = useState(false)
-
+    
     const handleSave = () => {
         setIsSaving(true);
         axios.post('/api/register', {
