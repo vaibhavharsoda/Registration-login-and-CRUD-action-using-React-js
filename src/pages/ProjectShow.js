@@ -9,8 +9,8 @@ function ProjectShow() {
     const [id, setId] = useState(useParams().id)
     const [project, setProject] = useState({name:'', description:''})
     
-    let axiosInstance = axios.create({
-        baseURL: 'https://mock-api.binaryboxtuts.com/'
+    const axiosInstance = axios.create({
+        baseURL: 'https://mock-api.binaryboxtuts.com/',
       });
 
     useEffect(() => {

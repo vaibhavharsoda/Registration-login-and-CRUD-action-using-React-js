@@ -11,8 +11,8 @@ function ProjectEdit() {
     const [isSaving, setIsSaving] = useState(false)
     const navigate = useNavigate();
 
-    let axiosInstance = axios.create({
-      baseURL: 'https://mock-api.binaryboxtuts.com/'
+    const axiosInstance = axios.create({
+      baseURL: 'https://mock-api.binaryboxtuts.com/',
     });
     
     useEffect(() => {

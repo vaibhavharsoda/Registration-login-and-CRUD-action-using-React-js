@@ -16,8 +16,8 @@ function ProjectList() {
         fetchProjectList()
     }, [])
 
-    let axiosInstance = axios.create({
-      baseURL: 'https://mock-api.binaryboxtuts.com/'
+    const axiosInstance = axios.create({
+      baseURL: 'https://mock-api.binaryboxtuts.com/',
     });
 
   
