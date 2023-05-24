@@ -8,8 +8,8 @@ import Layout from "../components/Layout"
 
 function Login() {  
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('admin');
+    const [password, setPassword] = useState('11')
     const [isSaving, setIsSaving] = useState(false);
 
     useEffect(()=>{
@@ -74,6 +74,7 @@ function Login() {
                                         className="form-control"
                                         id="floatingInput" 
                                         placeholder="name@example.com" 
+                                        value="admin"
                                           />
                                         <label htmlFor="floatingInput">Email address</label>
                                     </div>
@@ -85,6 +86,7 @@ function Login() {
                                         className="form-control"
                                         id="floatingPassword"
                                         placeholder="Password" 
+                                        value="11"
                                         />
                                         <label htmlFor="floatingPassword">Password</label>
                                     </div>
