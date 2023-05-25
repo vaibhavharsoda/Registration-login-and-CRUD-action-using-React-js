@@ -28,6 +28,7 @@ function Login() {
         setIsSaving(true);
         var em = email === 'admin' ? 'kminchelle' : email;
         var pas = password === '11' ? '0lelplR' : password;
+        
         instance.post('/auth/login', {
             username: em,
             password: pas
