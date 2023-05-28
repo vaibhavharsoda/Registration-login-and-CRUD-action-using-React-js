@@ -30,6 +30,9 @@ To get started with the project, follow these steps:
 
 ## Features
 
+- User id :- admin
+- Password:- 11
+
 - User registration and login functionality with validation.
 - CRUD operations to manage data.
 - User-friendly interface using React and Bootstrap.
