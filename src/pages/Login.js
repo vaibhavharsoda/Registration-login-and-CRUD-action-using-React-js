@@ -4,8 +4,6 @@ import Swal from 'sweetalert2'
 import axios from 'axios'
 import Layout from "../components/Layout"
 
-
-
 function Login() {  
     const navigate = useNavigate();
     const [email, setEmail] = useState('admin');
