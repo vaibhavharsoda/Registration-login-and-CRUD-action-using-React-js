@@ -1,36 +1,35 @@
-import React,{ useState, useEffect} from 'react'
-import { Link, useNavigate} from "react-router-dom"
+import React, { useState, useEffect } from 'react'
+import { Link, useNavigate } from "react-router-dom"
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import Layout from "../components/Layout"
- 
-  
+
 function ProjectList() {
     const navigate = useNavigate();
-    const  [projectList, setProjectList] = useState([])
-  
+    const [projectList, setProjectList] = useState([])
+
     useEffect(() => {
-        if(localStorage.getItem('token') == null) {
+        if (localStorage.getItem('token') == null) {
             navigate("/");
         }
         fetchProjectList()
     }, [])
 
     const axiosInstance = axios.create({
-      baseURL: 'https://mock-api.binaryboxtuts.com/',
+        baseURL: 'https://mock-api.binaryboxtuts.com/',
     });
 
-  
+
     const fetchProjectList = () => {
         axiosInstance.get('/api/projects')
-        .then(function (response) {
-          setProjectList(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
+            .then(function (response) {
+                setProjectList(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     }
-  
+
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -40,28 +39,28 @@ function ProjectList() {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 axiosInstance.delete(`/api/projects/${id}`)
-                .then(function (response) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Project deleted successfully!',
-                        showConfirmButton: false,
-                        timer: 1500
+                    .then(function (response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Project deleted successfully!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        fetchProjectList()
                     })
-                    fetchProjectList()
-                })
-                .catch(function (error) {
-                    Swal.fire({
-                         icon: 'error',
-                        title: 'An Error Occured!',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                });
+                    .catch(function (error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'An Error Occured!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    });
             }
-          })
+        })
     }
 
     const Logout = () => {
@@ -69,18 +68,18 @@ function ProjectList() {
         localStorage.removeItem("token");
         navigate("/");
     }
-  
+
     return (
         <Layout>
-           <div className="container">
-            <h2 className="text-center mt-5 mb-3">Project Manager</h2>
+            <div className="container">
+                <h2 className="text-center mt-5 mb-3">Project Manager</h2>
                 <div className="card">
                     <div className="card-header">
                         <Link className="btn btn-outline-primary" to="/create">Create New Project </Link>
-                        <button onClick={()=>Logout()} className="btn btn-outline-danger float-end"> Logout </button>
+                        <button onClick={() => Logout()} className="btn btn-outline-danger float-end"> Logout </button>
                     </div>
                     <div className="card-body">
-              
+
                         <table className="table table-bordered">
                             <thead>
                                 <tr>
@@ -90,7 +89,7 @@ function ProjectList() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {projectList.map((project, key)=>{
+                                {projectList.map((project, key) => {
                                     return (
                                         <tr key={key}>
                                             <td>{project.name}</td>
@@ -106,8 +105,8 @@ function ProjectList() {
                                                     to={`/edit/${project.id}`}>
                                                     Edit
                                                 </Link>
-                                                <button 
-                                                    onClick={()=>handleDelete(project.id)}
+                                                <button
+                                                    onClick={() => handleDelete(project.id)}
                                                     className="btn btn-outline-danger mx-1">
                                                     Delete
                                                 </button>
@@ -123,5 +122,5 @@ function ProjectList() {
         </Layout>
     );
 }
-  
+
 export default ProjectList;
